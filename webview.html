@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+</head>
+<body>
+   <h1>LEARN BASIC WEBVIEW IN REACT NATIVE</h1>
+   <button onclick="sendMesssageToReactNative()" style="width: 100%">SEND MESSAGE TO REACT NATIVE</button>
+   <input type="file"/>
+   <script>
+   function sendMesssageToReactNative(){
+      var dataJson = {
+         msg: 'message from webview.html',
+         time : (new Date()).getTime()
+      }
+      window.ReactNativeWebView.postMessage(JSON.stringify(dataJson))
+   }
+   (function(){
+      var body = document.getElementsByTagName('BODY')[0];
+      document.addEventListener('message', function(msg){
+         var color = msg.data;
+         body.style.backgroundColor = color;
+      })
+   })()
+   </script>
+</body>
+</html>
